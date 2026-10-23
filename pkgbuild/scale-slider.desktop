@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Scale Slider
+Name[da]=Skaleringsskyder
+Comment=Adjust display scaling live
+Comment[da]=Juster skærmskalering løbende
+Exec=scale-slider open
+Icon=scale-slider
+Terminal=false
+Categories=Utility;Settings;
+StartupWMClass=scale-slider
