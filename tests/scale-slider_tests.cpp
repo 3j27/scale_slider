@@ -91,6 +91,18 @@ private slots:
         QCOMPARE(backend.scale(), 1.37);
         QTest::keyClick(window, Qt::Key_Escape);
         QCOMPARE(input->property("text").toString(), QString("1.37"));
+        // Tiling can force the app below its requested size as scale increases.
+        for (const auto &size : {QSize(282, 168), QSize(240, 140), QSize(520, 320)}) {
+            window->resize(size); QTest::qWait(30);
+            auto heading = window->findChild<QQuickItem *>("scaleHeading"); QVERIFY(heading);
+            const QRectF headingRect(heading->mapToScene(QPointF()), heading->size());
+            const QRectF inputRect(input->mapToScene(QPointF()), input->size());
+            const QRectF sliderRect(slider->mapToScene(QPointF()), slider->size());
+            QVERIFY2(!headingRect.intersects(inputRect), "Heading overlaps the scale field");
+            QVERIFY2(sliderRect.top() >= inputRect.bottom(), "Slider overlaps the scale field");
+            QVERIFY(sliderRect.width() > 100);
+            QVERIFY(inputRect.right() <= window->width());
+        }
     }
 };
 int main(int argc, char **argv) {

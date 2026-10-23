@@ -8,5 +8,6 @@
   "Changes apply as you move the slider.": "Ændringer anvendes, når du flytter skyderen.",
   "Saved and applied. You can close this window.": "Gemt og anvendt. Du kan lukke vinduet.",
   "Drag the slider or type a scale and press Enter.": "Træk skyderen, eller skriv en skalering og tryk Enter.",
-  "Display scale, from 1.0 to 2.0": "Skærmskalering, fra 1.0 til 2.0"
+  "Display scale, from 1.0 to 2.0": "Skærmskalering, fra 1.0 til 2.0",
+  "Scale": "Skalering"
 }
