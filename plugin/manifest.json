@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "admin.scale-slider",
+  "name": "Scale Slider",
+  "version": "1.0.0",
+  "author": "admin",
+  "license": "MIT",
+  "description": "Current display scale in the Omarchy bar, with a popup slider that applies Hyprland scale through the scale-slider CLI.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Scale Slider",
+    "description": "Display scale readout and a 1.00x-2.00x slider, backed by scale-slider set --json.",
+    "category": "Display",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "min": 1.0,
+      "max": 2.0,
+      "step": 0.01,
+      "binPath": ""
+    },
+    "schema": [
+      {
+        "key": "min",
+        "type": "number",
+        "label": "Minimum scale",
+        "defaultValue": 1.0
+      },
+      {
+        "key": "max",
+        "type": "number",
+        "label": "Maximum scale",
+        "defaultValue": 2.0
+      },
+      {
+        "key": "step",
+        "type": "number",
+        "label": "Slider step",
+        "defaultValue": 0.01
+      },
+      {
+        "key": "binPath",
+        "type": "path",
+        "label": "Path to scale-slider",
+        "description": "Leave empty to find scale-slider on PATH.",
+        "defaultValue": ""
+      }
+    ]
+  }
+}
